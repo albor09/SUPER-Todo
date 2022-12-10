@@ -10,10 +10,12 @@ export const TodoWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0.2em 0.25em 0.2em 0.25em;
+  gap: 0.5em;
 `;
 
 export const TodoContent = styled.div`
   color: white;
+  overflow-wrap: anywhere;
 `;
 
 export const TodoText = styled.div`
