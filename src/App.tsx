@@ -1,56 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import "./App.css";
+import SideNav from "./components/SideNav";
+import WorkSpace from "./components/WorkSpace";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import AddTodoListModal from "./components/Modals/AddTodoList";
+import AddTodoModal from "./components/Modals/AddTodo";
+import { useAppSelector } from "./app/hooks";
+import { selectAddTodoListModal } from "./components/Modals/AddTodoList/slice";
+import { selectAddTodoModal } from "./components/Modals/AddTodo/slice";
 
 function App() {
+  const addTodoListModalState = useAppSelector(selectAddTodoListModal);
+  const addTodoModalState = useAppSelector(selectAddTodoModal);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      <SideNav></SideNav>
+      <WorkSpace></WorkSpace>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+      <AddTodoListModal isOpen={addTodoListModalState.isOpen}></AddTodoListModal>
+      <AddTodoModal isOpen={addTodoModalState.isOpen}></AddTodoModal>
     </div>
   );
 }

@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  -webkit-overflow-scrolling: touch;
+  /* align-items: flex-end; */
 }
 
 .App-logo {

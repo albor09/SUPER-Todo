@@ -1,10 +1,18 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore, ThunkAction, Action, combineReducers } from "@reduxjs/toolkit";
+import themeReducer from "../components/ThemeToggle/indexSlice";
+import todoListsReducer from "../components/TodoList/slice";
+import addTodoListModal from "../components/Modals/AddTodoList/slice";
+import addTodoModal from "../components/Modals/AddTodo/slice";
+import sideNavReducer from "../components/SideNav/slice";
 
 export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
+  reducer: combineReducers({
+    todoLists: todoListsReducer,
+    sideNav: sideNavReducer,
+    theme: themeReducer,
+    addTodoListModal: addTodoListModal,
+    addTodoModal: addTodoModal,
+  }),
 });
 
 export type AppDispatch = typeof store.dispatch;
