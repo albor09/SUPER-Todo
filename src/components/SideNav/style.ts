@@ -27,7 +27,7 @@ export const TLWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  gap: 0.2em;
+  gap: 0.5em;
   color: white;
   background-color: 4A4A4A;
   &:hover {
@@ -41,7 +41,7 @@ export const TLWrapperSelected = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  gap: 0.2em;
+  gap: 0.5em;
   color: white;
   background-color: #525252;
   &:hover {
@@ -52,6 +52,7 @@ export const TLWrapperSelected = styled.div`
 export const ListName = styled.div`
   font-size: 16px;
   font-weight: 600;
+  overflow-wrap: anywhere;
 `;
 
 export const CreateList = styled.div`
@@ -74,7 +75,8 @@ export const NameAndPercent = styled.div`
   width: 100%;
   justify-content: space-between;
   flex-direction: row;
-  gap: 0.2em;
+  gap: 0.5em;
+  align-items: center;
 `;
 
 export const SliderOfComplete = styled.div`
